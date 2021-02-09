@@ -9,13 +9,8 @@ export class LessonResolver {
 
   // eslint-disable-next-line prettier/prettier
   @Query(returns => LessonType)
-  lesson() {
-    return {
-      id: 'abc',
-      name: 'AName',
-      startDate: new Date().toISOString(),
-      endDate: new Date().toISOString(),
-    };
+  lesson(@Args('id') id: string) {
+    return this.lessonService.getLesson(id);
   }
 
   // eslint-disable-next-line prettier/prettier
