@@ -15,6 +15,12 @@ export class LessonResolver {
   }
 
   // eslint-disable-next-line prettier/prettier
+  @Query(returns => [LessonType])
+  lessons() {
+    return this.lessonService.getLessons();
+  }
+
+  // eslint-disable-next-line prettier/prettier
   @Mutation(returns => LessonType)
   createLesson(
     @Args('createLessonInput') createLessonInput: CreateLessonInput,
